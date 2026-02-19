@@ -6,6 +6,8 @@ import {
   watchlist,
 } from "@/data/dashboard";
 
+import MarketSnapshot from "@/components/MarketSnapshot";
+
 const today = new Date().toLocaleDateString("ko-KR", {
   year: "numeric",
   month: "long",
@@ -52,18 +54,7 @@ export default function Home() {
             </ol>
           </article>
 
-          <article className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-            <h2 className="mb-4 text-lg font-semibold">시장 스냅샷</h2>
-            <div className="grid grid-cols-2 gap-3">
-              {marketSnapshots.map((item) => (
-                <div key={item.label} className="rounded-xl bg-slate-50 p-3">
-                  <p className="text-xs text-slate-500">{item.label}</p>
-                  <p className="text-base font-semibold">{item.value}</p>
-                  <p className={`text-sm font-medium ${changeColor(item.change)}`}>{item.change}</p>
-                </div>
-              ))}
-            </div>
-          </article>
+         <MarketSnapshot />
         </section>
 
         <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
